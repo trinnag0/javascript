@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexagon Color Practice</title>
+</head>
+<body>
+    <h1>Hexagon Color Practice</h1>
+    <label for="hexColor">Enter a hex color:</label>
+    <input id="hexColor" type="text" value="#3366cc" maxlength="7">
+    <button id="applyColor" type="button">Apply Color</button>
+    <div id="preview" style="width:200px;height:200px;margin-top:20px;background:#3366cc;"></div>
+    <script>
+        document.getElementById("applyColor").addEventListener("click", function () {
+            var value = document.getElementById("hexColor").value.trim();
+            if (/^#[0-9a-f]{6}$/i.test(value)) {
+                document.getElementById("preview").style.backgroundColor = value;
+            } else {
+                alert("Enter a valid six-digit hex color, such as #3366cc.");
+            }
+        });
+    </script>
+</body>
+</html>

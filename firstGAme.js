@@ -18,6 +18,14 @@ var Snake = (function () {
         setInterval(gameLoop, 1000 / 15);
     }
 
+    function setVelocity(nextVelocity) {
+        if (nextVelocity.x !== 0 && velocity.y === 0) {
+            velocity = nextVelocity;
+        } else if (nextVelocity.y !== 0 && velocity.x === 0) {
+            velocity = nextVelocity;
+        }
+    }
+
     function keyPush(evt) {
         switch (evt.keyCode) {
             case 37: // Left
@@ -78,4 +86,13 @@ var Snake = (function () {
     }
 
     setup();
+
+    return {
+        action: {
+            up: () => setVelocity({ x: 0, y: -1 }),
+            down: () => setVelocity({ x: 0, y: 1 }),
+            left: () => setVelocity({ x: -1, y: 0 }),
+            right: () => setVelocity({ x: 1, y: 0 })
+        }
+    };
 })();

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Color Flipper</title>
+</head>
+<body>
+    <h1>Simple Color Flipper</h1>
+    <p>Current color: <span id="colorName">#ffffff</span></p>
+    <button id="changeColor" type="button">Change background</button>
+    <script>
+        var colors = ["#ffffff", "#ff6b6b", "#4ecdc4", "#45aaf2", "#fed330", "#2bcbba"];
+        var index = 0;
+        document.getElementById("changeColor").addEventListener("click", function () {
+            index = (index + 1) % colors.length;
+            document.body.style.backgroundColor = colors[index];
+            document.getElementById("colorName").textContent = colors[index];
+        });
+    </script>
+</body>
+</html>

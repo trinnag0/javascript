@@ -9,36 +9,22 @@ JS Basics
 <script>
 var question = "What is 10 + 10 ?";
 var answer = 20;
-var correct = '<img src="download (4).jpeg">';
-var incorrect = '<img src="download (3).jpeg">';
-var response = prompt(question,"0");
-for(count = 0; count < 3; count++){
-    if(response!= answer){
-        confirm("Wrong,Press okay for Another chance");
-        response = prompt(question,"0");
-    }
-    if(count == 1){
-        alert("better luck next time");
-    }
-    else {
-        alert("great! you are right");
-        count = 3;
-    }
-}
-var output = (response == answer)? correct: incorrect;
-document.write("<br");
-document.write(output);
+var response = Number(prompt(question, "0"));
+var message = (response === answer)
+    ? "Correct: 10 + 10 = 20"
+    : "Incorrect. The answer is 20.";
+
+document.write("<h1>" + message + "</h1>");
+document.write('<p id="greeting"></p>');
 </script>
 </head>
 <body>
     
-    <script language= "Javascript">
-        document.write('<img src="download (4).jpeg">');
-        document.write('<h1>Greetings</h1>');
-        document.write(prompt("enter your name:"," "));
-        document.write("&nbsp;Welcome to my home Page")
-        confirm("Do you really want to continue");
-
+    <script>
+        var enteredName = prompt("Enter your name:", "");
+        var name = enteredName ? enteredName.trim() : "";
+        document.getElementById("greeting").textContent =
+            (name ? name : "Guest") + ", welcome to my home page!";
     </script>
 
     
