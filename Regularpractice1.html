@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<meta name= "viewport" content="width=device-width, initial scale = 1.0">
+<meta charset = 'UTF-8'>
+     <head> 
+     <title>
+            Color trial example
+     </title>
+   <style>
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: blanchedalmond;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+  
+   position: relative;
+}
+
+#c1,#c2{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    position: relative;
+}
+#c2{
+    
+    background-color:rgb(141, 129, 0);
+}
+#c1{
+    
+    background-color: black;
+    
+}
+
+#btn1, #btn2{
+
+    background-color: aqua;
+    border-radius: 20%;
+   margin: 5px; 
+}
+</style>
+     </head>
+<body id ="body">
+<div id = "c1"></div>
+<button id="btn1" onclick="changeColor()">Change colour</button>
+<button id="btn2" >Change Size</button>
+<div id = "c2" ></div>
+</body>
+<script>
+
+document.getElementById('btn2').addEventListener('click',
+    function changeSize(){
+
+        const circles = [document.getElementById('c1'), document.getElementById('c2')]
+    
+        for( let i=0; i < circles.length; i++){
+            const size =circles[i];
+            if(size){
+              const  w1 = parseInt(window.getComputedStyle(size).width);
+              const  h1 = parseInt(window.getComputedStyle(size).height);
+            
+            if(w1 > 20 && h1 > 20){
+                size.style.width = (w1 - 20) + "px";
+                size.style.height = (h1 - 20) + "px";
+            }
+        }
+    }
+    }
+);
+
+function changeColor(){
+    const circlez = [document.getElementById('c1'),document.getElementById('c2')];
+
+    for( let i = 0; i< circlez.length; i++){
+        const coloring = circlez[i];
+
+        if(coloring){
+         coloring.style.backgroundColor = randomise();
+
+        }
+
+    }
+}
+
+function randomise(){
+     var letters = '0123456789ABCDEF';
+    let color = '#';
+    for(let i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random()*16)]; 
+    }
+    return color;
+}
+
+document.getElementById('body').addEventListener('click',
+function (event){
+    const b1 = document.getElementById('body');
+    if(event.target.id == 'body'){
+        b1.style.backgroundColor= randomise();
+    }
+});
+</script>
+
+</html>

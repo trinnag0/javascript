@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <link rel ="stylesheet" href ="circle.css">
+    <title>Circle click change</title>
+</head>
+<body>
+    
+<div onclick="changeColor()" id="c1"></div>
+<div onclick="vanish()" id="c2"></div>
+
+<button onclick="changeColor2()" id ="btn">Click me</button>
+<br>
+<button id="btn2">Change Size</button>
+</body>
+<script>
+ function changeColor() {
+document.getElementById("c1").style.backgroundColor="green";
+
+};
+
+
+document.getElementById('btn2').addEventListener('click', 
+ function changeSize(){
+ const circles = [document.getElementById('c1') , document.getElementById('c2')]
+    
+ for( let i = 0; i < circles.length; i++){
+    const circle = circles[i];
+ if (circle){
+        const w1 = parseInt(window.getComputedStyle(circle).width);
+        const h1 = parseInt(window.getComputedStyle(circle).height);
+    if( w1 > 20 && h1 > 20 ) {
+        circle.style.width = (w1 - 20) + "px";
+        circle.style.height = (h1 - 20) + "px";
+    }
+}
+ }
+});
+
+
+
+
+function changeColor2() {
+const circles = [document.getElementById("c1"), document.getElementById("c2")];
+
+for( let i = 0; i< circles.length; i++){   
+const circle = circles[i];
+if (circle) {
+    circle.style.backgroundColor = randomise();
+}
+}
+};
+
+function randomise(){
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for(let i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random()*16)];
+    }
+    return color;
+}
+function vanish(){
+    const circle1 = document.getElementById("c1");
+    if (circle1){
+        circle1.remove();
+}
+}
+    </script>
+</html>

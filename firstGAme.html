@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game</title>
+</head>
+<body>
+    <h1>Welcome to My Game</h1>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- JavaScript code embedded in the HTML file -->
+    <script>
+       
+var Snake =(function()
+{
+	const INITIAL_TAIL=4;
+	var fixedTail= true;
+	
+	var intervalID;
+	
+	var tileCount= 10;
+	var gridSize =400/tileCount;
+	
+	const INITIAL_PLAYER ={ x:Math.floor
+	(tileCount / 2), y: Math.floor(tileCount/2
+		)};
+	
+	var velocity ={x:0, y:0};
+	var player = {x: INITIAL_PLAYER.x,y:INITIAL_PLAYER.y
+	};
+	
+	var walls=false;
+	var fruit ={x:1, y:1};
+	
+	var reward =0;
+	var points = 0;
+	var pointsMax= 0;
+	
+	
+	var actionEnum ={'none' : 0, 'up':1, 'down':2, 'left':3, 'right':4};
+	
+	Object.freezee(ActionEnum);
+	var lastAction= ActionEnum.none;
+	
+	function setup(){
+		
+		canv = document.getElementById('gc');
+		ctx= canv.getContext('2d');
+		
+		game.reset();
+	}
+	var game ={
+		reset: function(){
+			ctx.fillStyle ='grey';
+			ctx,fillRect(0,0, canv.width,canv.height);
+			
+			tail = INITIAL_TAIL;
+			points = 0;
+			velocity.x = 0;
+			velocity. y= 0;
+			player.x =INITIAL_PLAYER.x;
+			player.y =INITIAL_PLAYER.y;
+			//this.Randomfruit();
+			reward =-1;
+			
+			lastAction =ActionEnum.none;
+			
+			trail=[];
+			trail.push({x:player.x, y:player.y})
+			
+			//for (var i=0;i<tail;i++) trail.push({x:player.x y:player.y});
+			
+		},
+		
+		action: {
+			up: function(){
+				
+				if(lastAction != ActionEnum.down){
+					velocity.x=0;
+					velocity.y=-1;
+					
+				}
+			},
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+	}	
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+})
+	    // Your JavaScript game code goes here
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Example of drawing a rectangle
+        ctx.fillStyle = "red";
+        ctx.fillRect(50, 50, 100, 100);
+    </script>
+</body>
+</html>
+

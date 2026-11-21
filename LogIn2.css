@@ -1,0 +1,7 @@
+#F1 {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* This property vertically centers the content */
+    height: 100vh;
+    flex-direction: column; /* Ensures elements stack vertically */
+}
